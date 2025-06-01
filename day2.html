@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script>
+        function Calculate(){
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+            const operation = document.getElementById("operation").value;
+            let result;
+
+            if(isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers");
+                return;
+            }
+            switch(operation){
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "subtract":
+                    result = num1-num2;
+                    break;
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+                case "divide":
+                    if(num2 === 0){
+                        alert("cannot divide by zero");
+                        return;
+                    }
+                    else {
+                        result = num1/num2;
+                        break;
+                    }
+                default:
+                    alert("please enter the values");
+                return;
+            
+            }
+
+            alert("the result is: "+ result);
+        }
+    </script>
+</head>
+<body class="container mt-5 ">
+    <div class="card shadow p-4 mx-auto mt-4" style="max-width: 500px;">
+        <h1 class="text-center"> day2 of learning java script</h1>
+    <h2 class="text-center">simple calculator</h2>
+   <div class="d-flex flex-column align-items-center">
+     <input type="number" id="num1" class="form-control mb-3" style="max-width: 50%;" placeholder="enter the first number">
+    <input type="number" id="num2" class="form-control mb-3" style="max-width: 50%;" placeholder="enter the second number">
+    <select id="operation" class="form-select mb-3" style="max-width: 50%;">
+        <option value="add">ADD</option>
+        <option value="subtract">SUBTRACT</option>
+        <option value="multiply">MULTIPLY</option>
+        <option value="divide">DIVIDE</option>
+    </select>
+    <button class="btn btn-primary" onclick="Calculate()">Calculate</button>
+   </div>
+    </div>
+</body>
+</html>
